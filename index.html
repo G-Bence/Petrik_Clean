@@ -1,13 +1,265 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>petrik-clean</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="./PetrikClean_Logo_v0.1.svg" />
+  <link rel="stylesheet" href="./src/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <title>Petrik-Clean</title>
+</head>
+
+<body>
+  <!-- Vertical Floor Sidebar -->
+  <div class="floor-sidebar">
+    <div class="floor-label">Floors</div>
+    <div class="floors-container" id="floorsContainer"></div>
+  </div>
+
+  <div class="main-content">
+    <div class="container">
+
+      <div class="row mb-2">
+        <div class="col-sm-12 col-md-6 text-center mx-auto">
+          <div class="btn-group w-100" role="group">
+            <input type="radio" class="btn-check" name="building" id="buildingA" value="A" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="buildingA">Building A</label>
+
+            <input type="radio" class="btn-check" name="building" id="buildingB" value="B" autocomplete="off">
+            <label class="btn btn-outline-primary" for="buildingB">Building B</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-sm-12 col-md-8 text-center mx-auto" id="toilet_floorPlan" style="height: 75vh;">
+          <p id="currentFloorDisplay" style="color: white; padding: 10px; padding-bottom: 0px; font-size: 24px;">Floor 0</p>
+
+          <div class="floorplan-container mx-auto">
+            <div class="plan-wrap text-white" id = "plan_wrap">
+
+
+              <!-- BUILDING A MALE-->
+               <!--
+              <img src="/Building_A_Male_Toilet_ALL_IN_ALL.svg" alt="Toilet block floor plan" class="plan-img">
+
+              <button class="pin btn btn-sm" style="left: 3.65%; top: 10%; width: 6.25%; height: 18%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Mop Bucket">
+              </button>
+
+              <button class="pin btn btn-sm" style="left: 13.25%; top: 10%; width: 12.75%; height: 18%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Hand Wash #1">
+              </button>
+
+              <button class="pin btn btn-sm" style="left: 19.25%; top: 28.25%; width: 5%; height: 19%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Towel Dispenser">
+              </button>
+
+              <button class="pin btn btn-sm" style="left: 5%; top: 28.75%; width: 9%; height: 20%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Staff Hand Wash #1">
+              </button>
+
+
+              <button class="pin btn btn-sm" style="left: 15.75%; top: 90%; width: 10%; height: 18%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Hand Wash #2">
+              </button>
+
+              <button class="pin btn btn-sm" style="left: 5.75%; top: 90%; width: 10%; height: 18%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Hand Wash #3">
+              </button>
+
+
+              <button class="pin btn btn-sm" style="left: 87.5%; top: 17.5%; width: 23.5%; height: 30%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Toilet #1">
+              </button>
+              <button class="pin btn btn-sm" style="left: 87.5%; top: 51%; width: 23.5%; height: 30%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Toilet #2">
+              </button>
+              <button class="pin btn btn-sm" style="left: 87.5%; top: 83.5%; width: 23.5%; height: 30%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Toilet #3">
+
+
+              <button class="pin btn btn-sm" style="left: 33.5%; top: 16%; width: 15%; height: 30%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Urina #1"> 
+              <button class="pin btn btn-sm" style="left: 48.25%; top: 16%; width: 15%; height: 30%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Urina #2">     
+              <button class="pin btn btn-sm" style="left: 63%; top: 16%; width: 15%; height: 30%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Urina #3">
+-->
+
+
+
+              <!-- BUILDING A FEMALE
+              <img src="/Building_A_Female_Toilet_ALL_IN_ALL.svg" alt="Toilet block floor plan" class="plan-img">
+
+              <button class="pin btn btn-sm" style="left: 63.5%; top: 10.25%; width: 9.5%; height: 18%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Mop Bucket">
+              </button>
+
+              <button class="pin btn btn-sm" style="left: 76.25%; top: 39.5%; width: 15%; height: 18%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Hand Wash #1">
+              </button>
+
+              <button class="pin btn btn-sm" style="left: 91%; top: 39.5%; width: 15%; height: 18%;;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Hand Wash #2">
+              </button>
+
+              <button class="pin btn btn-sm" style="left: 95%; top: 61.75%; width: 8%; height: 19%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Towel Dispenser">
+              </button>
+
+
+              <button class="pin btn btn-sm" style="left: 19%; top: 17.5%; width: 36%; height: 30%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Toilet #1">
+              </button>
+              <button class="pin btn btn-sm" style="left: 19%; top: 51%; width: 36%; height: 30%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Toilet #2">
+              </button>
+              <button class="pin btn btn-sm" style="left: 19%; top: 83.5%; width: 36%; height: 30%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Toilet #3">
+              </button>
+            -->
+
+
+              <!--BUIDING B MALE
+              <img src="/Building_B_Male_Toilet_ALL_IN_ALL.svg" alt="Toilet block floor plan" class="plan-img">
+
+              <button class="pin btn btn-sm" style="left: 6%; top: 4.5%; width: 12%; height: 8%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Mop Bucket">
+              </button>
+
+              
+              <button class="pin btn btn-sm" style="left: 23.5%; top: 4.5%; width: 12.5%; height: 8%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Towel Dispenser">
+              </button>
+
+              <button class="pin btn btn-sm" style="left: 8.5%; top: 28.5%; width: 14%; height: 14%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Hand Wash #1">
+              </button>
+
+              <button class="pin btn btn-sm" style="left: 22.5%; top: 28.5%; width: 14%; height: 14%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Hand Wash #2">
+              </button>
+
+              <button class="pin btn btn-sm" style="left: 84.5%; top: 13%; width: 29.5%; height: 23.75%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Toilet #1">
+              </button>
+              <button class="pin btn btn-sm" style="left: 84.5%; top: 37.75%; width: 29.5%; height: 23.75%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Toilet #2">
+              </button>
+              <button class="pin btn btn-sm" style="left: 84.5%; top: 62.25%; width: 29.5%; height: 23.75%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Toilet #3">
+              </button>
+
+              <button class="pin btn btn-sm" style="left: 84.5%; top: 86.75%; width: 29.5%; height: 23.75%"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Toilet #4">
+              </button>
+
+
+              <button class="pin btn btn-sm" style="left: 45%; top: 40.75%; width: 15%; height: 20%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Urina #1"> 
+              <button class="pin btn btn-sm" style="left: 45%; top: 61.75%; width: 15%; height: 20%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Urina #2">
+              <button class="pin btn btn-sm" style="left: 45%; top: 82.75%; width: 15%; height: 20%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Urina #3">
+              -->
+
+
+              <!--BUILDING B FEMALE
+              <img src="/Building_B_Female_Toilet_ALL_IN_ALL.svg" alt="Toilet block floor plan" class="plan-img">
+
+              <button class="pin btn btn-sm" style="left: 6%; top: 4.5%; width: 12%; height: 8%;" data-bs-toggle="modal"
+                data-bs-target="#reportModal" data-item="Mop Bucket">
+              </button>
+
+
+              <button class="pin btn btn-sm" style="left: 23.5%; top: 4.5%; width: 12.5%; height: 8%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Towel Dispenser">
+              </button>
+
+              <button class="pin btn btn-sm" style="left: 8.5%; top: 28.5%; width: 14%; height: 14%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Hand Wash #1">
+              </button>
+
+              <button class="pin btn btn-sm" style="left: 22.5%; top: 28.5%; width: 14%; height: 14%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Hand Wash #2">
+              </button>
+
+              <button class="pin btn btn-sm" style="left: 84.5%; top: 13%; width: 29.5%; height: 23.75%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Toilet #1">
+              </button>
+              <button class="pin btn btn-sm" style="left: 84.5%; top: 37.75%; width: 29.5%; height: 23.75%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Toilet #2">
+              </button>
+              <button class="pin btn btn-sm" style="left: 84.5%; top: 62.25%; width: 29.5%; height: 23.75%;"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Toilet #3">
+              </button>
+              <button class="pin btn btn-sm" style="left: 84.5%; top: 86.75%; width: 29.5%; height: 23.75%"
+                data-bs-toggle="modal" data-bs-target="#reportModal" data-item="Toilet #4">
+              </button>
+              -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-sm-12 col-md-6 text-center mx-auto">
+          <div class="btn-group w-100" role="group">
+            <input type="radio" class="btn-check" name="toilet" id="maleToilet" value="Male" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="maleToilet">Male Toilet</label>
+
+            <input type="radio" class="btn-check" name="toilet" id="femaleToilet" value="Female" autocomplete="off">
+            <label class="btn btn-outline-primary" for="femaleToilet">Female Toilet</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal fade" id="reportModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content text-white bg-dark" id="reportForm" style="border: 2px solid #1F6FF1;">
+        <div class="modal-header">
+          <h5 class="modal-title">Report issue</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="mb-2">
+            <label class="form-label">Item</label>
+            <input class="form-control" id="itemField" name="item" readonly>
+            <!--<select class="form-control" id="itemField" name="item" readonly>
+              <option>Toilet paper</option>
+              <option>Soap</option>
+              <option>Hand dryer</option>
+              <option>Paper towels</option>
+              <option>Trash bin</option>
+            </select>-->
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" id="reportDescription" name="message" rows="3"
+              placeholder="What is missing / what needs cleaning?"></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
+          <button class="btn btn-primary" type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>
